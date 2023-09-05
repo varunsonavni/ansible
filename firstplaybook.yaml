@@ -3,7 +3,7 @@
 ---
 
 - name: Install & start nginx
-  hosts: all   # take hosts from inventory file.
+  hosts: webserver   # take hosts from inventory file.
   become: root  # which user to run the commands
 
   tasks:
