@@ -23,6 +23,8 @@ Extensibility: Ansible can be extended through custom modules and plugins, allow
 
 Dynamic Inventory: It is a concept where your ansible configuration file will auto-detect new ec2 instances coming around and will manage it by its own, what to pre-install in that ec2.
 
+
+### ansible command is use to run ad-hoc ansible task, ansible-playbook command is used to run Ansible Playbook file.
 ### Run an ad-hoc ansible task.
 ```
 ansible -i inventory all -m "shell" -a "df && ps -aux  &&  echo 'hello'"

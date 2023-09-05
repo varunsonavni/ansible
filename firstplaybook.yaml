@@ -1,4 +1,5 @@
 # install nginx and start nginx on multiple servers.
+# To run this playbook use command ansible-playbook 
 ---
 
 - name: Install & start nginx
