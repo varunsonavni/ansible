@@ -1,0 +1,28 @@
+# install nginx and start nginx on multiple servers.
+---
+
+- name: Install & start nginx
+  hosts: all   # take hosts from inventory file.
+  become: root  # which user to run the commands
+
+  tasks:
+    - name: Install nginx
+      # shell: apt install nginx 
+      apt:    # apt is also an module in nginx like shell & copy
+        name: nginx
+        state: present
+
+    - name: Start nginx
+      # shell: systemctl start nginx 
+      service:    # service is also an module in nginx like shell & copy
+        name: nginx
+        state: started
+
+    
+    
+    
+
+
+
+
+---
