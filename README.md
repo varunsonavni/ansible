@@ -25,6 +25,7 @@ Dynamic Inventory: It is a concept where your ansible configuration file will au
 
 
 ### ansible command is use to run ad-hoc ansible task, ansible-playbook command is used to run Ansible Playbook file.
+
 ### Run an ad-hoc ansible task.
 ```
 ansible -i inventory all -m "shell" -a "df && ps -aux  &&  echo 'hello'"
