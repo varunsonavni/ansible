@@ -50,3 +50,8 @@ ansible -i inventory2 webserver -m copy -a "src='/home/ubuntu/devopsmadeeasy' de
 ```
 ansible-playbook -i inventory2 firstplaybook.yaml
 ```
+
+### Run complex Ansible-playbook with ansible galaxy roles. It will create a folder kubernetes.
+```
+ansible-galaxy role init kubernetes
+```
