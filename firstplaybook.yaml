@@ -18,12 +18,3 @@
       service:    # service is also an module in nginx like shell & copy
         name: nginx
         state: started
-
-    
-    
-    
-
-
-
-
----
