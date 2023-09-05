@@ -23,6 +23,7 @@ Extensibility: Ansible can be extended through custom modules and plugins, allow
 
 Dynamic Inventory: It is a concept where your ansible configuration file will auto-detect new ec2 instances coming around and will manage it by its own, what to pre-install in that ec2.
 
+### Run an ad-hoc ansible task.
 ```
 ansible -i inventory all -m "shell" -a "df && ps -aux  &&  echo 'hello'"
 ```
@@ -35,4 +36,9 @@ ansible -i inventory all -m copy -a "src='/home/ubuntu/ansible/test' dest='/home
 ### copy from local to remote
 ```
 ansible -i inventory all -m copy -a "src='/home/ubuntu/devopsmadeeasy' dest='/home/ubuntu/xxxxx' remote_src=true" -vvv  
+```
+
+### Run Ad-hoc command to only some group in inverntory file
+```
+ansible -i inventory2 webserver -m copy -a "src='/home/ubuntu/devopsmadeeasy' dest='/home/ubuntu/xxxxx' remote_src=true" -vvv  
 ```
