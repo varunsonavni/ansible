@@ -44,3 +44,8 @@ ansible -i inventory all -m copy -a "src='/home/ubuntu/devopsmadeeasy' dest='/ho
 ```
 ansible -i inventory2 webserver -m copy -a "src='/home/ubuntu/devopsmadeeasy' dest='/home/ubuntu/xxxxx' remote_src=true" -vvv  
 ```
+
+### Run Ansible-playbook with inventory2 file
+```
+ansible-playbook -i inventory2 firstplaybook.yaml
+```
