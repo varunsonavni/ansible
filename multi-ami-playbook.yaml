@@ -1,24 +1,24 @@
 ---
-- name: Install Nginx on Ubuntu and Amazon Linux 2
+- name: Install and Start Nginx on Ubuntu and Amazon Linux 2
   hosts: your_target_hosts
   become: yes  # Ensure to run tasks with sudo or as root
 
   tasks:
-    - name: Check OS Distribution
-      ansible_distribution:  # Gather OS distribution facts
-      register: os_info
+    - name: Gather OS facts
+      setup:  # Gather all facts, including distribution
+      register: facts
 
     - name: Install Nginx on Ubuntu
       apt:
         name: nginx
         state: present
-      when: os_info.ansible_distribution == 'Ubuntu'
+      when: facts.ansible_facts['ansible_distribution'] == 'Ubuntu'
 
     - name: Install Nginx on Amazon Linux 2
       yum:
         name: nginx
         state: present
-      when: os_info.ansible_distribution == 'Amazon'
+      when: facts.ansible_facts['ansible_distribution'] == 'Amazon'
 
     - name: Start Nginx Service
       service:
