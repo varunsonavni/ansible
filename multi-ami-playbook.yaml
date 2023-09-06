@@ -1,6 +1,6 @@
 ---
 - name: Install and Start Nginx on Ubuntu and Amazon Linux 2
-  hosts: your_target_hosts
+  hosts: all
   become: yes  # Ensure to run tasks with sudo or as root
 
   tasks:
