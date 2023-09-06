@@ -4,6 +4,10 @@
 
 - name: Install & start nginx
   hosts: webserver   # take hosts from inventory file.
+  # hosts: all  # For all hosts
+  # hosts: 172.31.1.1:172.52.78.1 # Give multiple host
+  # hosts: webserver:database:anyothergroup  # Give multiple groups
+
   become: yes  # which user to run the commands
 
   tasks:
