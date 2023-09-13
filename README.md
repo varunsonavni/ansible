@@ -55,3 +55,10 @@ ansible-playbook -i inventory2 firstplaybook.yaml
 ```
 ansible-galaxy role init kubernetes
 ```
+
+
+### To check configurations of node like IP, memory, CPU, ami etc .
+```
+ansible -i inventory all -m setup
+```
+
