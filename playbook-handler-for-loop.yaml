@@ -28,6 +28,10 @@
         name: "{{ item }}"
         state: present
       with_items: "{{ new_users }}"
+      # with_items:
+      #   - varun
+      #   - alice
+      #   - bob
       become: yes
 
   handlers:
