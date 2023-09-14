@@ -1,4 +1,4 @@
-f---
+---
 - name: Install and Start Nginx on Ubuntu and Amazon Linux 2
   hosts: all
   # hosts: all  # For all hosts
