@@ -4,13 +4,20 @@ f---
   # hosts: all  # For all hosts
   # hosts: 172.31.1.1:172.52.78.1 # Give multiple host
   # hosts: webserver:database:anyothergroup  # Give multiple groups
-
   become: yes  # Ensure to run tasks with sudo or as root
+  vars:
+    package: tree
 
   tasks:
     - name: Gather OS facts
       setup:  # Gather all facts, including distribution
       register: facts
+
+    - name: Install tree on Ubuntu
+      apt:
+        name: '{{package}}'
+        state: present
+      when: facts.ansible_facts['ansible_distribution'] == 'Ubuntu'
 
     - name: Install Nginx on Ubuntu
       apt:
