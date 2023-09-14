@@ -5,8 +5,10 @@
   # hosts: 172.31.1.1:172.52.78.1 # Give multiple host
   # hosts: webserver:database:anyothergroup  # Give multiple groups
   become: yes  # Ensure to run tasks with sudo or as root
+  
   vars:
-    package: tree
+    package: nginx
+    package2: tree
 
   tasks:
     - name: Gather OS facts
@@ -15,23 +17,23 @@
 
     - name: Install tree on Ubuntu
       apt:
-        name: '{{package}}'
+        name: '{{package2}}'
         state: present
       when: facts.ansible_facts['ansible_distribution'] == 'Ubuntu'
 
     - name: Install Nginx on Ubuntu
       apt:
-        name: nginx
+        name: '{{package}}'
         state: present
       when: facts.ansible_facts['ansible_distribution'] == 'Ubuntu'
 
     - name: Install Nginx on Amazon Linux 2
       dnf:
-        name: nginx
+        name: '{{package}}'
         state: present
       when: facts.ansible_facts['ansible_distribution'] == 'Amazon'
 
     - name: Start Nginx Service
       service:
-        name: nginx
+        name: '{{package}}'
         state: started
