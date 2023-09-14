@@ -1,0 +1,29 @@
+---
+- name: Install and Start Nginx on Ubuntu. 
+  hosts: all
+  # hosts: all  # For all hosts
+  # hosts: 172.31.1.1:172.52.78.1 # Give multiple host
+  # hosts: webserver:database:anyothergroup  # Give multiple groups
+  become: yes  # Ensure to run tasks with sudo or as root
+  
+  vars:
+    package: nginx
+    package2: tree
+
+  tasks:
+    - name: Gather OS facts
+      setup:  # Gather all facts, including distribution
+      register: facts
+
+    - name: Install Nginx on Ubuntu
+      apt:
+        name: '{{package}}'
+        state: present
+      when: facts.ansible_facts['ansible_distribution'] == 'Ubuntu'
+      notify: Start Nginx Service  # Notify will call handler with same name.
+
+  handlers:
+    - name: Start Nginx Service
+      service:
+        name: '{{package}}'
+        state: started
