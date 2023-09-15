@@ -1,2 +1,17 @@
----
 # tasks file for kubernetes
+
+# install nginx and start nginx on multiple servers.
+# To run this playbook use command ansible-playbook 
+---
+
+  - name: Install nginx
+    # shell: apt install nginx -y
+    apt:    # apt is also an module in nginx like shell & copy
+      name: nginx
+      state: present
+
+  - name: Start nginx
+    # shell: systemctl start nginx 
+    service:    # service is also an module in nginx like shell & copy
+      name: nginx
+      state: started
