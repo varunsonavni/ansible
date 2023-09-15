@@ -51,6 +51,11 @@ ansible -i inventory2 webserver -m copy -a "src='/home/ubuntu/devopsmadeeasy' de
 ansible-playbook -i inventory2 firstplaybook.yaml
 ```
 
+### Dry-Run Ansible-playbook with inventory2 file
+```
+ansible-playbook -i inventory2 firstplaybook.yaml --check
+```
+
 ### Run complex Ansible-playbook with ansible galaxy roles. It will create a folder kubernetes.
 ```
 ansible-galaxy role init kubernetes
@@ -62,3 +67,29 @@ ansible-galaxy role init kubernetes
 ansible -i inventory all -m setup
 ```
 
+### To Create a new encrypted playbook.
+```
+ansible-vault create playbookname.yaml  
+After that you need to add a password.
+Now If you run cat playbookname.yaml it will show in encrypted format.
+```
+
+### To edit a encrypted playbook.
+```
+ansible-vault edit playbookname.yaml  
+```
+
+### To Change the password for a encrypted playbook.
+```
+ansible-vault rekey playbookname.yaml  
+```
+
+### To encrypt exisiting playbook.
+```
+ansible-vault encrypt playbookname.yaml  
+```
+
+### To decrypt exisiting playbook.
+```
+ansible-vault decrypt playbookname.yaml  
+```

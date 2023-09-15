@@ -12,7 +12,7 @@
 
   tasks:
     - name: Install nginx
-      # shell: apt install nginx 
+      # shell: apt install nginx -y
       apt:    # apt is also an module in nginx like shell & copy
         name: nginx
         state: present
