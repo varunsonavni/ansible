@@ -1,0 +1,7 @@
+--- # Masteer file to call role.
+
+- hosts: all
+  become: yes
+  roles: 
+  - kubernetes
+
