@@ -71,7 +71,7 @@ ansible -i inventory all -m setup
 ```
 ansible-vault create playbookname.yaml  
 After that you need to add a password.
-Now If you run cat playbookname.yaml it will show in encrypted format.
+Now If you run cat playbookname.yaml it will show in encrypted format (AES256).
 ```
 
 ### To edit a encrypted playbook.

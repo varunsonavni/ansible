@@ -1,4 +1,4 @@
----
+ ---
 - name: Install and Start Nginx on Ubuntu and Add Users
   hosts: all
   become: yes  # Ensure to run tasks with sudo or as root
